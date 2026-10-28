@@ -1,25 +1,16 @@
 from fastapi import FastAPI, Depends, Request, Form
 from fastapi.responses import RedirectResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from .database import SessionLocal, engine, Base
 from . import models
-
-from pathlib import Path
 
 # Cria as tabelas no SQLite local automaticamente se não existirem
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="EBD Sistema Escolar - Portfólio")
 
-# Cria a pasta 'static' automaticamente se ela não existir, evitando o erro
-Path("static").mkdir(parents=True, exist_ok=True)
-
-# Agora o mount não vai dar erro nunca mais
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-# Configuração dos templates Jinja2
+# Configuração dos templates Jinja2 (sem dependência de pasta static local)
 templates = Jinja2Templates(directory="templates")
 
 def get_db():
