@@ -6,13 +6,18 @@ from sqlalchemy.orm import Session
 from .database import SessionLocal, engine, Base
 from . import models
 
+from pathlib import Path
+
 # Cria as tabelas no SQLite local automaticamente se não existirem
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="EBD Sistema Escolar - Portfólio")
 
-# Montagem de arquivos estáticos (Tailwind / CSS)
-#app.mount("/static", StaticFiles(directory="static"), name="static")
+# Cria a pasta 'static' automaticamente se ela não existir, evitando o erro
+Path("static").mkdir(parents=True, exist_ok=True)
+
+# Agora o mount não vai dar erro nunca mais
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Configuração dos templates Jinja2
 templates = Jinja2Templates(directory="templates")
