@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBD - Sistema de Gestão Escolar (Portfólio)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col justify-between font-sans text-slate-800">
+
+    <!-- Header / Topo -->
+    <header class="bg-indigo-600 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide">📚 EBD - Sistema Escolar (Desktop Demo)</h1>
+            <span class="bg-indigo-700 text-xs px-3 py-1 rounded-full uppercase tracking-wider font-semibold">Versão Portfólio</span>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Rodapé com a Assinatura do Desenvolvedor -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="text-sm">EBD Gestão Escolar &copy; 2026 — Desenvolvido para fins de demonstração.</p>
+            </div>
+            <div class="text-center sm:text-right">
+                <!-- ÁREA DA SUA ASSINATURA PROFISSIONAL -->
+                <p class="text-xs text-slate-500 uppercase tracking-widest">Engenharia e Desenvolvimento</p>
+                <p class="text-sm font-medium text-indigo-400">Desenvolvido por <span class="text-white font-bold">[Seu Nome / Sua Marca]</span></p>
+                <a href="https://seuportifolio.com" target="_blank" class="text-xs text-indigo-400 hover:underline">Visite meu Portfólio &rarr;</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
