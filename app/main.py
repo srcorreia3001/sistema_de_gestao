@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(title="EBD Sistema Escolar - Portfólio")
 
 # Montagem de arquivos estáticos (Tailwind / CSS)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+#app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Configuração dos templates Jinja2
 templates = Jinja2Templates(directory="templates")
